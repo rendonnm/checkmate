@@ -14,4 +14,9 @@ export default defineConfig({
     tailwindcss(),
     svgr()
   ],
+  resolve: {
+    alias: {
+      '@': '/src'
+    }
+  }
 })
