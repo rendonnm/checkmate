@@ -3,5 +3,5 @@ interface TickProps {
 }
 
 export const Tick = ({ value }: TickProps) => {
-	return <p className="font-semibold text-zinc-300 text-md">{value}</p>;
+	return <p className="font-semibold text-[#a1a1a1] text-md">{value}</p>;
 };

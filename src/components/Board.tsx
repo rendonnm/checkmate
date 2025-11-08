@@ -17,7 +17,7 @@ export const Board = () => {
 					})}
 				</aside>
 				<div>
-					<article className="grid grid-cols-8 shadow-2xl">
+					<article className="grid grid-cols-8 shadow-md/10">
 						{squares.map((row, r) => {
 							return row.map((cell, c) => {
 								const color =
