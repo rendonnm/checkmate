@@ -13,11 +13,11 @@ export const Board = () => {
 			<article className="flex h-[592px] mr-8 mb-8">
 				<aside className="w-8 grid grid-rows-8 items-center justify-center">
 					{yAxisTicks.reverse().map((tick) => {
-						return <Tick value={tick} />;
+						return <Tick key={tick} value={tick} />;
 					})}
 				</aside>
 				<div>
-					<article className="grid grid-cols-8">
+					<article className="grid grid-cols-8 shadow-2xl">
 						{squares.map((row, r) => {
 							return row.map((cell, c) => {
 								const color =
@@ -35,6 +35,7 @@ export const Board = () => {
 								}
 								return (
 									<Square
+										key={`${xAxisTicks[c]}${yAxisTicks[r]}`}
 										color={color}
 										borderRadius={borderRadius}
 										piece={cell}
@@ -45,7 +46,7 @@ export const Board = () => {
 					</article>
 					<footer className="h-8 grid grid-cols-8 text-center">
 						{xAxisTicks.map((tick) => {
-							return <Tick value={tick} />;
+							return <Tick key={tick} value={tick} />;
 						})}
 					</footer>
 				</div>
