@@ -20,7 +20,8 @@ export const Board = () => {
 					<article className="grid grid-cols-8">
 						{squares.map((row, r) => {
 							return row.map((cell, c) => {
-								const color = (c + r) % 2 === 0 ? "bg-white" : "bg-black";
+								const color =
+									(c + r) % 2 === 0 ? "bg-[#EAE9D2]" : "bg-[#4B7399]";
 
 								let borderRadius = "";
 								if (r === 0 && c === 0) {
