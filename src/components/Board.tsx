@@ -9,7 +9,7 @@ interface BoardProps {
 
 export const Board = ({ squares }: BoardProps) => {
 	return (
-		<article className="grid grid-cols-8 grid-rows-8 shadow-md/10">
+		<article className="relative mx-8 mb-8 grid grid-cols-8 grid-rows-8 shadow-md/10 aspect-square">
 			<BoardYAxisTicks />
 			{squares.map((row, r) => {
 				return row.map((cell, c) => {
