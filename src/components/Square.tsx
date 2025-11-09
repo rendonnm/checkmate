@@ -9,7 +9,7 @@ interface SquareProps {
 
 export const Square = ({ color, borderRadius, piece }: SquareProps) => {
 	return (
-		<div className={`size-[74px] ${color} ${borderRadius}`}>
+		<div className={`aspect-square ${color} ${borderRadius}`}>
 			{piece && <Piece piece={piece.piece} color={piece.color} />}
 		</div>
 	);
