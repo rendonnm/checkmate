@@ -2,16 +2,17 @@ import { initSquares } from "@/constants/board";
 import { Board } from "@/components/Board";
 import { PlayerRow } from "@/components/PlayerRow";
 import { useState } from "react";
+import "@/styles/board.css";
 
 export const Game = () => {
 	const [squares, setSquares] = useState(initSquares);
 	return (
-		<section className="flex flex-col h-full">
-			<PlayerRow name="Black" />
-			<div className="flex flex-1">
+		<section className="board-wrapper">
+			<PlayerRow name="Black" className="player-1-container" />
+			<div className="h-full w-fit ml-8 mb-8">
 				<Board squares={squares} />
 			</div>
-			<PlayerRow name="White" />
+			<PlayerRow name="White" className="player-2-container" />
 		</section>
 	);
 };
