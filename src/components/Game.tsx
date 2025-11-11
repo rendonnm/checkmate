@@ -1,18 +1,12 @@
-import { initSquares } from "@/constants/board";
-import { Board } from "@/components/Board";
-import { PlayerRow } from "@/components/PlayerRow";
-import { useState } from "react";
+import { BoardWrapper } from "@/components/BoardWrapper";
+import { Movements } from "@/components/Movements";
 import "@/styles/board.css";
 
 export const Game = () => {
-	const [squares, setSquares] = useState(initSquares);
 	return (
-		<section className="board-wrapper">
-			<PlayerRow name="Black" className="player-1-container" />
-			<div className="h-full w-fit ml-8 mb-8">
-				<Board squares={squares} />
-			</div>
-			<PlayerRow name="White" className="player-2-container" />
+		<section className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-10 w-full md:h-full max-w-5xl mx-auto">
+			<BoardWrapper />
+			<Movements />
 		</section>
 	);
 };
