@@ -1,18 +1,23 @@
 import { yAxisTicks, xAxisTicks } from "@/constants/board";
-import type { PieceDataProps } from "@/types/chess";
+import type { PieceDataProps, HandleMoveProps } from "@/types/chess";
 import { BoardXAxisTicks, BoardYAxisTicks } from "@/components/BoardTicks";
 import { Square } from "@/components/Square";
 
 interface BoardProps {
 	squares: (PieceDataProps | null)[][];
+	handleMove: ({ pieceData, from, to }: HandleMoveProps) => void;
 }
 
-export const Board = ({ squares }: BoardProps) => {
+export const Board = ({ squares, handleMove }: BoardProps) => {
 	return (
 		<article className="relative grid grid-cols-8 grid-rows-8 shadow-md/10 aspect-square h-full w-fit">
 			<BoardYAxisTicks />
 			{squares.map((row, r) => {
 				return row.map((cell, c) => {
+					const index = {
+						row: r,
+						column: c,
+					};
 					const color = (c + r) % 2 === 0 ? "bg-[#EAE9D2]" : "bg-[#4B7399]";
 
 					let borderRadius = "";
@@ -28,9 +33,11 @@ export const Board = ({ squares }: BoardProps) => {
 					return (
 						<Square
 							key={`${xAxisTicks[c]}${yAxisTicks[r]}`}
+							index={index}
 							color={color}
 							borderRadius={borderRadius}
 							piece={cell}
+							handleMove={handleMove}
 						/>
 					);
 				});

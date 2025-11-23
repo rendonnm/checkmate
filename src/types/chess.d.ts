@@ -11,4 +11,19 @@ export interface PieceProps {
 
 export interface PieceDataProps extends PieceProps {
   color: ChessTeamColor;
+  index: IndexPosition
+}
+
+type Row = number
+type Column = number
+
+export interface IndexPosition {
+  row: Row
+  column: Column
+}
+
+export interface HandleMoveProps {
+  pieceData: PieceDataProps;
+  from: IndexPosition;
+  to: IndexPosition;
 }
